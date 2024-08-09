@@ -1,4 +1,5 @@
 import { useState, useEffect, SetStateAction } from "react";
+import VideoComponent from "./VideoComponent";
 
 function Timer() {
   const [timeLeft, setTimeLeft] = useState(30);
