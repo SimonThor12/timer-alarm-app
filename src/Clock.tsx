@@ -15,7 +15,7 @@ function Clock() {
 
   return (
     <>
-      <h1 className="items-center justify-center text-center">{time}</h1>
+      <h1 className="text items-center justify-center text-center">{time}</h1>
     </>
   );
 }

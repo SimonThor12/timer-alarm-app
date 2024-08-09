@@ -1,8 +1,14 @@
+import StartTimerBtn from "./StartTimerBtn.tsx";
+import Button from "./TimeBtn.tsx";
 function TimerSetter() {
   return (
     <>
-      <p className="text-primary mt-4">Set Alarm Here:</p>
-
+      <p className="mt-4">Set Alarm Here:</p>
+      <div className="flex flex-row">
+        <Button />
+        <Button />
+      </div>
+      <StartTimerBtn />
     </>
   );
 }
