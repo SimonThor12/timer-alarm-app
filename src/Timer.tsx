@@ -1,15 +1,15 @@
-import {
-  useState,
-  useEffect,
-  ReactEventHandler,
-  ReactElement,
-  SetStateAction,
-} from "react";
+import { useState, useEffect, SetStateAction } from "react";
 
 function Timer() {
-  const [timeLeft, setTimeLeft] = useState(60);
+  const [timeLeft, setTimeLeft] = useState(30);
   const [isTicking, setIsTicking] = useState(false);
   const [input, setInput] = useState("");
+
+  function fetchVideoOnZeroTime(time: number) {
+    if (time == 0) {
+      window.location.href = "https://www.youtube.com/watch?v=xm3YgoEiEDc";
+    }
+  }
 
   useEffect(() => {
     if (timeLeft > 0 && isTicking) {
@@ -19,6 +19,7 @@ function Timer() {
 
       return () => clearInterval(intervalId);
     }
+    fetchVideoOnZeroTime(timeLeft);
   }, [timeLeft, isTicking]);
 
   function toggleTimer() {
@@ -60,15 +61,13 @@ function Timer() {
         Reset
       </button>
       <input
-        min="0"
-        max="60"
         value={input}
         onChange={handleInputChange}
         type="number"
         className="text-center mt-4"
         placeholder="Set timer here"></input>
       <button
-        className="btn "
+        className="btn mt-4"
         onClick={setTimer}>
         Set timer
       </button>
