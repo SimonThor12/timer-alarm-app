@@ -1,22 +1,32 @@
 import { useState, useEffect } from "react";
 
 function Clock() {
-  const [time, setTime] = useState("");
+  const dateObj = new Date();
+
+  const currentTime = dateObj.toLocaleTimeString();
+
+  const [time, setTime] = useState(currentTime);
 
   useEffect(() => {
     setInterval(() => {
-      const dateObj = new Date();
+      const newDate = new Date();
 
-      const currentTime = dateObj.toLocaleTimeString();
+      const currentTime = newDate.toLocaleTimeString();
 
       setTime(currentTime);
     }, 1000);
   });
 
   return (
-    <>
-      <h1 className="text items-center justify-center text-center">{time}</h1>
-    </>
+    <div>
+      <h1
+        className="flex items-center flex-col justify-center text-6xl font-bold text-white min-h-screen"
+        style={{
+          textShadow: "2px 2px 10px rgba(0, 0, 0, 0.7), 0 0 15px #FF8C00",
+        }}>
+        {time}
+      </h1>{" "}
+    </div>
   );
 }
 
