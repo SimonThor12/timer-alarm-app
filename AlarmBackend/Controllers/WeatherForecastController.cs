@@ -4,29 +4,18 @@ namespace AlarmBackend.Controllers;
 
 [ApiController]
 [Route("[controller]")]
-public class WeatherForecastController : ControllerBase
+public class AlarmsController : ControllerBase
 {
-    private static readonly string[] Summaries = new[]
-    {
-        "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-    };
 
-    private readonly ILogger<WeatherForecastController> _logger;
-
-    public WeatherForecastController(ILogger<WeatherForecastController> logger)
+    [HttpGet(Name = "GetAlarms")]
+    public IEnumerable<Alarm> Get()
     {
-        _logger = logger;
-    }
-
-    [HttpGet(Name = "GetWeatherForecast")]
-    public IEnumerable<WeatherForecast> Get()
-    {
-        return Enumerable.Range(1, 5).Select(index => new WeatherForecast
+        return new List<Alarm>
         {
-            Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-            TemperatureC = Random.Shared.Next(-20, 55),
-            Summary = Summaries[Random.Shared.Next(Summaries.Length)]
-        })
-        .ToArray();
+            new Alarm { Id = 1, Description = "Wake up", Time = DateTime.Now.AddHours(1) },
+            new Alarm { Id = 2, Description = "Go to work", Time = DateTime.Now.AddHours(2) },
+            new Alarm { Id = 3, Description = "Go to sleep", Time = DateTime.Now.AddHours(3) }
+        };
+
     }
 }

@@ -10,7 +10,7 @@ function AlarmList() {
   const [alarmList, setAlarmList] = useState<Alarm[]>([]);
 
   async function getData() {
-    const url = "http://localhost:5066/weatherforecast";
+    const url = "http://localhost:5066/Alarms";
     try {
       await fetch(url).then((response) =>
         response.json().then((data) => {
@@ -32,7 +32,7 @@ function AlarmList() {
       <ul>
         {alarmList.map((alarm) => (
           <li key={alarm.id}>
-            {alarm.description} - {alarm.time}
+            {alarm.description} - {alarm.time} 
           </li>
         ))}
       </ul>
