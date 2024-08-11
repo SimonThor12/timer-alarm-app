@@ -1,13 +1,13 @@
 import { useState, useEffect, SetStateAction } from "react";
-import VideoComponent from "./VideoComponent";
+import TimerDisplay from "./TimerDisplay";
 
 function Timer() {
-  const [timeLeft, setTimeLeft] = useState(30);
+  const [timeLeft, setTimeLeft] = useState(0);
   const [isTicking, setIsTicking] = useState(false);
   const [input, setInput] = useState("");
 
   function fetchVideoOnZeroTime(time: number) {
-    if (time == 0) {
+    if (time == 0 && isTicking) {
       window.location.href = "https://www.youtube.com/watch?v=xm3YgoEiEDc";
     }
   }
@@ -28,7 +28,7 @@ function Timer() {
   }
 
   const resetTimer = () => {
-    setTimeLeft(60); // Reset to the initial value
+    setTimeLeft(0); // Reset to the initial value
   };
 
   const setTimer = () => {
@@ -47,26 +47,26 @@ function Timer() {
 
   return (
     <div
-      data-theme="dark"
+      data-theme="coffee"
       className="flex flex-col items-center justify-center min-h-screen">
-      <h1 className="text-4xl text-center">Time-To-Time</h1>
-      <h2 className="mt-4">Time left: {timeLeft}</h2>
+      <TimerDisplay timeLeft={timeLeft} />
       <button
-        className="btn bg-warning mt-4 text-black"
+        className="btn mt-4"
         onClick={toggleTimer}>
         {isTicking ? "Pause" : "Start"}
       </button>
       <button
-        className="btn bg-warning mt-4 text-black"
+        className="btn mt-4"
         onClick={resetTimer}>
         Reset
       </button>
       <input
         value={input}
         onChange={handleInputChange}
-        type="number"
-        className="text-center mt-4"
-        placeholder="Set timer here"></input>
+        className="text-center mt-4 px-4 py-2 rounded-lg border-2 border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:outline-none transition duration-300 ease-in-out transform focus:scale-105"
+        placeholder="Set timer here"
+      />
+
       <button
         className="btn mt-4"
         onClick={setTimer}>
