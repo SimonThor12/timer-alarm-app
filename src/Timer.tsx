@@ -28,6 +28,7 @@ function Timer() {
   }
 
   const resetTimer = () => {
+    setIsTicking(false);
     setTimeLeft(0); // Reset to the initial value
   };
 
