@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 function AlarmAddForm() {
   const { register, handleSubmit } = useForm();
 
+  
   async function onSubmit(data: any) {
     const url = "http://localhost:5066/Alarms";
     await fetch(url, {

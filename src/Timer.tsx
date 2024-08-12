@@ -1,5 +1,6 @@
 import { useState, useEffect, SetStateAction } from "react";
 import TimerDisplay from "./TimerDisplay";
+import ControlButtons from "./ControlButtons";
 
 function Timer() {
   const [timeLeft, setTimeLeft] = useState(0);
@@ -30,7 +31,11 @@ function Timer() {
 
   const resetTimer = () => {
     setIsTicking(false);
-    setTimeLeft(0); // Reset to the initial value
+    // Reset the timer to the input value if it's set
+    if (input) {
+      setTimeLeft(parseInt(input));
+      return;
+    }
   };
 
   const setTimer = () => {
@@ -50,18 +55,14 @@ function Timer() {
   return (
     <div
       data-theme="coffee"
-      className="flex flex-col items-center justify-center min-h-screen">
+      className="flex flex-col items-center">
       <TimerDisplay timeLeft={timeLeft} />
-      <button
-        className="btn mt-4"
-        onClick={toggleTimer}>
-        {isTicking ? "Pause" : "Start"}
-      </button>
-      <button
-        className="btn mt-4"
-        onClick={resetTimer}>
-        Reset
-      </button>
+      <ControlButtons
+        isTicking={isTicking}
+        toggleTimer={toggleTimer}
+        resetTimer={resetTimer}
+      />
+
       <input
         value={input}
         onChange={handleInputChange}
