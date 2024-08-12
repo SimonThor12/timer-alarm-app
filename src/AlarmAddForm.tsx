@@ -1,9 +1,8 @@
 import { useForm } from "react-hook-form";
 
-function AlarmAddForm() {
+function AlarmAddForm(onIsAdded: any) {
   const { register, handleSubmit } = useForm();
 
-  
   async function onSubmit(data: any) {
     const url = "http://localhost:5066/Alarms";
     await fetch(url, {
@@ -13,6 +12,7 @@ function AlarmAddForm() {
       },
       body: JSON.stringify(data),
     });
+    onIsAdded(true);
 
     alert(data.description + " added to Alarms");
   }

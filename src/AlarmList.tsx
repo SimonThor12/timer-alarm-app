@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-function AlarmList() {
+function AlarmList(isRenderTime: any) {
   type Alarm = {
     id: string;
     description: number;
@@ -22,11 +22,9 @@ function AlarmList() {
     }
   }
 
-
-
   useEffect(() => {
     getData();
-  }, []);
+  }, [isRenderTime, alarmList]);
 
   async function deleteData(id: string) {
     const url = "http://localhost:5066/Alarms/" + id;
