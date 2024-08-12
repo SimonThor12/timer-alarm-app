@@ -9,10 +9,15 @@ export default function ClockApp() {
   return (
     <div
       data-theme="coffee"
-      className="flex justify-center items-center min-h-screen">
-      {activePage === "Timer" && <Timer />}
-      {activePage === "Clock" && <Clock />}
-      {activePage === "Alarms" && <Alarms />}
+      className="flex flex-col min-h-screen">
+      {/* Content Area */}
+      <div className="flex-grow flex justify-center items-center p-4 mb-16">
+        {activePage === "Timer" && <Timer />} 
+        {activePage === "Clock" && <Clock />}
+        {activePage === "Alarms" && <Alarms />}
+      </div>
+
+      {/* Footer */}
       <Footer setActivePage={setActivePage} />
     </div>
   );
