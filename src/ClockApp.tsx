@@ -4,7 +4,7 @@ import Clock from "./Clock";
 import Alarms from "./Alarms";
 
 export default function ClockApp() {
-  const [activePage, setActivePage] = useState("Clock");
+  const [activePage, setActivePage] = useState("Alarms");
   return (
     <div
       data-theme="coffee"

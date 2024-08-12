@@ -39,4 +39,16 @@ public class AlarmsController() : ControllerBase
         alarmDatabase.Add(alarmInput);
         return CreatedAtAction(nameof(GetOne), new { id = alarmInput.Id }, alarmInput);
     }
+
+    [HttpDelete("{id}")]
+    public IActionResult DeleteAlarm(string id)
+    {
+        Alarm alarm = alarmDatabase.FirstOrDefault(alarm => alarm.Id == id);
+        if (alarm == null)
+        {
+            return NotFound();
+        }
+        alarmDatabase.Remove(alarm);
+        return NoContent();
+    }
 }
