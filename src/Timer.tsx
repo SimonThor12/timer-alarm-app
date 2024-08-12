@@ -40,7 +40,7 @@ function Timer() {
 
   const setTimer = () => {
     const time = parseInt(input);
-    if (!isNaN(time) && time > 0 && time <= 60) {
+    if (!isNaN(time) && time > 0 && time <= 60) { 
       setTimeLeft(time); // Set the timer to the user's input
       setIsTicking(false); // Stop the timer if it's running
     }

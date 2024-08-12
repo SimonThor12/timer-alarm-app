@@ -19,18 +19,19 @@ function AlarmAddForm(onIsAdded: any) {
 
   return (
     <form
-      className="mt-5 flex flex-col items-center justify-center text-white space-y-5"
+      className="mt-5 flex flex-col items-center justify-center"
       onSubmit={handleSubmit(onSubmit)}>
       <input
+        className="input input-bordered input-primary w-full max-w-xs"
         {...register("description")}
-        placeholder="description"
       />
       <input
+        className="input input-bordered input-primary w-full max-w-xs text-center font-bold"
         {...register("time")}
         type="time"
       />
       <button
-        className="m-4"
+        className="btn btn-primary mt-2"
         type="submit"
         value="submit">
         Add Alarm

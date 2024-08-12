@@ -39,10 +39,10 @@ function AlarmList(isRenderTime: any) {
 
   return (
     <div>
-      <ul className="flex flex-wrap">
+      <ul className="flex flex-wrap justify-center">
         {alarmList.map((alarm) => (
           <li
-            className="card bg-base-100 w-96 shadow-xl outline m-2"
+            className="card w-64 shadow-x2 outline m-2"
             key={alarm.id}>
             <div className="card-body items-center text-center">
               <div className="justify-center">{alarm.description}</div>

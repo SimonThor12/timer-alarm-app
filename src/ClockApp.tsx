@@ -9,13 +9,11 @@ export default function ClockApp() {
   return (
     <div
       data-theme="coffee"
-      className="min-h-screen flex justify-center items-center">
+      className="flex justify-center items-center min-h-screen">
       {activePage === "Timer" && <Timer />}
       {activePage === "Clock" && <Clock />}
       {activePage === "Alarms" && <Alarms />}
-
       <Footer setActivePage={setActivePage} />
-      
     </div>
   );
 }
