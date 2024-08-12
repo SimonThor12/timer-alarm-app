@@ -1,7 +1,12 @@
+import { SetStateAction } from "react";
 import { useForm } from "react-hook-form";
 
-function AlarmAddForm(onIsAdded: any) {
-  const { register, handleSubmit } = useForm();
+function AlarmAddForm({
+  onIsAdded,
+}: {
+  onIsAdded: (value: SetStateAction<boolean>) => void;
+}) {
+  const { register, handleSubmit, reset } = useForm();
 
   async function onSubmit(data: any) {
     const url = "http://localhost:5066/Alarms";
@@ -14,7 +19,7 @@ function AlarmAddForm(onIsAdded: any) {
     });
     onIsAdded(true);
 
-    alert(data.description + " added to Alarms");
+    reset();
   }
 
   return (
@@ -22,10 +27,12 @@ function AlarmAddForm(onIsAdded: any) {
       className="mt-5 flex flex-col items-center justify-center"
       onSubmit={handleSubmit(onSubmit)}>
       <input
+        required
         className="input input-bordered input-primary w-full max-w-xs"
         {...register("description")}
       />
       <input
+        required
         className="input input-bordered input-primary w-full max-w-xs text-center font-bold"
         {...register("time")}
         type="time"

@@ -6,11 +6,11 @@ function Alarms() {
   const [isAdded, setIsAdded] = useState(false);
 
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex flex-col items-center mb-16 ">
       <h1 className="text-4xl font-bold">Add Alarm</h1>
       <AlarmAddForm onIsAdded={setIsAdded} />
 
-      <h1 className=" m-4 text-5xl font-bold">Alarms</h1>
+      <h1 className="text-5xl font-bold m-4">Alarms</h1>
       <AlarmList isRenderTime={isAdded} />
     </div>
   );

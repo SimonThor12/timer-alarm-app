@@ -11,7 +11,7 @@ export default function ClockApp() {
       data-theme="coffee"
       className="flex flex-col min-h-screen">
       {/* Content Area */}
-      <div className="flex-grow flex justify-center items-center p-4 mb-16">
+      <div className="flex-grow flex justify-center items-center">
         {activePage === "Timer" && <Timer />} 
         {activePage === "Clock" && <Clock />}
         {activePage === "Alarms" && <Alarms />}
