@@ -1,20 +1,40 @@
-function AlarmAddForm() {
-  return (
-    <>
-      <h1 className="text-5xl font-bold">Add your alarm here</h1>
+import { useForm } from "react-hook-form";
 
-      <form>
-        <input
-          type="text"
-          placeholder="Description"
-        />
-        <input
-          className=""
-          type="time"
-        />
-        <button type="submit">Add Alarm</button>
-      </form>
-    </>
+function AlarmAddForm() {
+  const { register, handleSubmit } = useForm();
+
+  async function onSubmit(data: any) {
+    const url = "http://localhost:5066/Alarms";
+    await fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+
+    alert(data.description + " added to Alarms");
+  }
+
+  return (
+    <form
+      className="mt-5 flex flex-col items-center justify-center text-white space-y-5"
+      onSubmit={handleSubmit(onSubmit)}>
+      <label htmlFor="description">Description</label>
+      <input
+        {...register("description")}
+        placeholder="description"
+      />
+      <input
+        {...register("time")}
+        type="time"
+      />
+      <button
+        type="submit"
+        value="submit">
+        Add Alarm
+      </button>
+    </form>
   );
 }
 

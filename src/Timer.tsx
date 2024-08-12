@@ -8,7 +8,8 @@ function Timer() {
 
   function fetchVideoOnZeroTime(time: number) {
     if (time == 0 && isTicking) {
-      window.location.href = "https://www.youtube.com/watch?v=xm3YgoEiEDc";
+      window.location.href =
+        "https://i.makeagif.com/media/12-06-2021/x9kVf3.gif";
     }
   }
 

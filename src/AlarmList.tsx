@@ -32,7 +32,7 @@ function AlarmList() {
       <ul>
         {alarmList.map((alarm) => (
           <li key={alarm.id}>
-            {alarm.description} - {alarm.time} 
+            {alarm.description} - {alarm.time}
           </li>
         ))}
       </ul>

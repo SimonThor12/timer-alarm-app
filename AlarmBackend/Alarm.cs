@@ -1,8 +1,11 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace AlarmBackend;
 
 public class Alarm
 {
-    public int Id { get; set; }
-    public string Description { get; set; }
-    public DateTime Time { get; set; }
+    [Key]
+    public string Id { get; init; } = "Alarm_" + Guid.NewGuid().ToString().Replace("-", "");
+    public required string Description { get; set; }
+    public required string Time { get; set; }
 }
