@@ -26,8 +26,6 @@ function AlarmList() {
     getData();
   }, []);
 
-  
-
   async function deleteData(id: string) {
     const url = "http://localhost:5066/Alarms/" + id;
     await fetch(url, {
@@ -37,22 +35,27 @@ function AlarmList() {
       },
     });
     getData();
-
-    alert("Alarm deleted");
   }
 
   return (
-    <div className="flex flex-col justify-center items-center">
-      <h1 className="text-5xl font-bold">Alarms</h1>
-      <ul className="flex flex-col">
+    <div>
+      <ul className="flex flex-wrap">
         {alarmList.map((alarm) => (
-          <li key={alarm.id}>
-            {alarm.description} - {alarm.time}
-            <button
-              onClick={() => deleteData(alarm.id)}
-              className="btn ml-4">
-              Delete
-            </button>
+          <li
+            className="card bg-base-100 w-96 shadow-xl outline m-2"
+            key={alarm.id}>
+            <div className="card-body items-center text-center">
+              <div className="justify-center">{alarm.description}</div>
+              <h2 className="font-bold">{alarm.time}</h2>
+            </div>
+            <div className="card-actions justify-end ">
+              <button className="badge badge-outline m-2">Edit</button>
+              <button
+                onClick={() => deleteData(alarm.id)}
+                className="badge badge-outline m-2">
+                Delete
+              </button>
+            </div>
           </li>
         ))}
       </ul>

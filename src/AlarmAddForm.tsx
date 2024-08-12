@@ -20,7 +20,6 @@ function AlarmAddForm() {
     <form
       className="mt-5 flex flex-col items-center justify-center text-white space-y-5"
       onSubmit={handleSubmit(onSubmit)}>
-      <label htmlFor="description">Description</label>
       <input
         {...register("description")}
         placeholder="description"
@@ -30,6 +29,7 @@ function AlarmAddForm() {
         type="time"
       />
       <button
+        className="m-4"
         type="submit"
         value="submit">
         Add Alarm
