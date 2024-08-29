@@ -1,8 +1,6 @@
 function Footer({ setActivePage }: { setActivePage: (page: string) => void }) {
   return (
-    <nav
-      className="btm-nav"
-      data-theme="coffee">
+    <nav className="btm-nav">
       <button
         className="text-white"
         onClick={() => setActivePage("Clock")}>

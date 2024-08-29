@@ -4,15 +4,15 @@ import Clock from "./Clock";
 import Alarms from "./Alarms";
 import Footer from "./Footer";
 
-export default function ClockApp() {
+function App() {
   const [activePage, setActivePage] = useState("Clock");
   return (
     <div
-      data-theme="coffee"
+      data-theme="dark"
       className="flex flex-col min-h-screen">
       {/* Content Area */}
       <div className="flex-grow flex justify-center items-center">
-        {activePage === "Timer" && <Timer />} 
+        {activePage === "Timer" && <Timer />}
         {activePage === "Clock" && <Clock />}
         {activePage === "Alarms" && <Alarms />}
       </div>
@@ -22,3 +22,5 @@ export default function ClockApp() {
     </div>
   );
 }
+
+export default App;

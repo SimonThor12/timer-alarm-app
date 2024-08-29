@@ -48,7 +48,7 @@ function Timer() {
 
   return (
     <div
-      data-theme="coffee"
+     
       className="flex flex-col items-center">
       <TimerDisplay timeLeft={timeLeft} />
       <ControlButtons
