@@ -1,21 +1,24 @@
 import { useState, useEffect } from "react";
 
 function Clock() {
-  const dateObj = new Date();
+  const time = useCurrentTime();
 
-  const currentTime = dateObj.toLocaleTimeString();
+  function useCurrentTime() {
+    const dateObj = new Date();
+    const currentTime = dateObj.toLocaleTimeString();
+    const [time, setTime] = useState(currentTime);
 
-  const [time, setTime] = useState(currentTime);
+    function updateTime() {
+      setInterval(() => {
+        const newDate = new Date();
+        setTime(newDate.toLocaleTimeString());
+      }, 1000);
+    }
 
-  useEffect(() => {
-    setInterval(() => {
-      const newDate = new Date();
+    updateTime();
 
-      const currentTime = newDate.toLocaleTimeString();
-
-      setTime(currentTime);
-    }, 1000);
-  });
+    return time;
+  }
 
   return (
     <div>

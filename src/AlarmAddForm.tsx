@@ -36,6 +36,7 @@ function AlarmAddForm({
         className="input input-bordered input-primary w-full max-w-xs text-center font-bold"
         {...register("time")}
         type="time"
+        step="1"
       />
       <button
         className="btn btn-primary mt-2"

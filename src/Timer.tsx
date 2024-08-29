@@ -1,16 +1,17 @@
 import { useState, useEffect } from "react";
 import TimerDisplay from "./TimerDisplay";
 import ControlButtons from "./ControlButtons";
+import sound from "./assets/031974_30-seconds-alarm-72117.mp3";
 
 function Timer() {
   const [timeLeft, setTimeLeft] = useState(0);
   const [isTicking, setIsTicking] = useState(false);
   const [input, setInput] = useState("");
+  const audio = new Audio(sound);
 
   function fetchVideoOnZeroTime(time: number) {
     if (time === 0 && isTicking) {
-      window.location.href =
-        "https://i.makeagif.com/media/12-06-2021/x9kVf3.gif";
+      audio.play();
     }
   }
 
@@ -31,6 +32,7 @@ function Timer() {
 
   const resetTimer = () => {
     setIsTicking(false);
+    audio.pause();
     if (input) {
       const [minutes, seconds] = input.split(":").map(Number);
       setTimeLeft(minutes * 60 + seconds);
@@ -47,9 +49,7 @@ function Timer() {
   };
 
   return (
-    <div
-     
-      className="flex flex-col items-center">
+    <div className="flex flex-col items-center">
       <TimerDisplay timeLeft={timeLeft} />
       <ControlButtons
         isTicking={isTicking}

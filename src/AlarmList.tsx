@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 
 function AlarmList(isRenderTime: any) {
+  const [alarmList, setAlarmList] = useState<Alarm[]>([]);
+
   type Alarm = {
     id: string;
-    description: number;
-    time: number;
+    description: string;
+    time: string;
   };
-
-  const [alarmList, setAlarmList] = useState<Alarm[]>([]);
 
   async function getData() {
     const url = "http://localhost:5066/Alarms";
