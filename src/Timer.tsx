@@ -40,16 +40,11 @@ function Timer() {
   const setTimer = () => {
     const [minutes, seconds] = input.split(":").map(Number);
     const time = minutes * 60 + seconds;
-
     if (time > 0) {
       setTimeLeft(time);
       setIsTicking(false);
     }
   };
-
-  function handleInputChange(event: React.ChangeEvent<HTMLInputElement>): void {
-    setInput(event.target.value);
-  }
 
   return (
     <div
@@ -65,7 +60,7 @@ function Timer() {
       <input
         type="time"
         value={input}
-        onChange={handleInputChange}
+        onChange={(e) => setInput(e.target.value)}
         className="text-center mt-4 px-4 py-2 rounded-lg border-2 border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:outline-none transition duration-300 ease-in-out transform focus:scale-105"
       />
 

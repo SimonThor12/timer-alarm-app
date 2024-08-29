@@ -11,7 +11,7 @@ public class AlarmsController() : ControllerBase
     {
         new Alarm {  Description = "Wake up", Time = "07:00" },
         new Alarm { Description = "Go to bed", Time = "22:00" },
-        new Alarm { Description = "Eat lunch", Time = "12:00" }
+        new Alarm { Description = "Eat lunch", Time = "12:00" },
     };
 
     [HttpGet()]
