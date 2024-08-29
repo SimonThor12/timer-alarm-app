@@ -23,7 +23,7 @@ public class AlarmsController() : ControllerBase
     [HttpGet("{id}")]
     public ActionResult<Alarm> GetOne(string id)
     {
-        Alarm alarm = alarmDatabase.FirstOrDefault(alarm => alarm.Id == id);
+        Alarm alarm = alarmDatabase.FirstOrDefault(alarm => alarm.Id == id)!;
         if (alarm == null)
         {
             return NotFound();
@@ -43,7 +43,7 @@ public class AlarmsController() : ControllerBase
     [HttpDelete("{id}")]
     public IActionResult DeleteAlarm(string id)
     {
-        Alarm alarm = alarmDatabase.FirstOrDefault(alarm => alarm.Id == id);
+        Alarm alarm = alarmDatabase.FirstOrDefault(alarm => alarm.Id == id)!;
         if (alarm == null)
         {
             return NotFound();
