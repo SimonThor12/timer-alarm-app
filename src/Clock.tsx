@@ -1,4 +1,3 @@
-import { useState } from "react";
 import useClock from "./Hooks/useClock";
 
 function Clock() {
